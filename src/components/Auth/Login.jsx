@@ -40,8 +40,8 @@ const Login = () => {
 
   useEffect(()=>{
     if(isAuthorized){
-      // return <Navigate to={'/'}/>
-      return <Navigate to={'/Home'}/>
+      return <Navigate to={'/'}/>
+      // return <Navigate to={'/Home'}/>
     }
   },[isAuthorized])
 
