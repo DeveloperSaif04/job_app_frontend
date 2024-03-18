@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiLock2Fill } from "react-icons/ri";
 import { Link, Navigate } from "react-router-dom";
@@ -27,6 +27,7 @@ const Login = () => {
           withCredentials: true,
         }
       );
+      console.log("dataaa",data)
       toast.success(data.message);
       setEmail("");
       setPassword("");
@@ -37,9 +38,12 @@ const Login = () => {
     }
   };
 
-  if(isAuthorized){
-    return <Navigate to={'/'}/>
-  }
+  useEffect(()=>{
+    if(isAuthorized){
+      return <Navigate to={'/'}/>
+    }
+  },[isAuthorized])
+
 
   return (
     <div className="authPage bg--100 min-h-screen flex items-center justify-center">
